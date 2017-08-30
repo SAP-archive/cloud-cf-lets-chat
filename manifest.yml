@@ -1,0 +1,8 @@
+---
+applications:
+- name: lets
+  host: lets
+  memory: 512M
+  path: .
+  services:
+    - mongodb
