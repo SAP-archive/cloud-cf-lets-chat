@@ -1,12 +1,17 @@
-# Let's chat
+# Let's chat on SAP Cloud Platform
 
 A self-hosted chat app for small teams built by [Security Compass][seccom].
 
-Let's Chat is a persistent messaging application that runs on SAP Cloud Platform - Cloud Foundry services. It uses Node.js buildpack and MongoDB service.
+Let's Chat is a simple chat application like slack that runs on SAP Cloud Platform - Cloud Foundry services. It uses Node.js buildpack and MongoDB services from SAP Cloud Platform.
+
+This repository demonstrates how to build and deploy Let's chat app to SAP Cloud Platform.
+
+SAP is a Founding Platinum Level Member of the Cloud Foundry Foundation, an independent not for profit Linux Foundation Collaborative Project, whose purpose is to drive global awareness and adoption of the Cloud Foundry open source project and foster a vibrant community of contributors. More Details: [Cloud Foundry in SAP Cloud Platform][CFSAP] 
 
 ## Requirements and Installation
 
-Command line client for Cloud Foundry [cli][cli]
+Command line client for Cloud Foundry [cli][cli] . 
+[Getting started][GS] with cli.
 
 You can sign-up for the free SAP Cloud Platform trial here - [SAPCP][SAPCP] - Login and Click “Start Cloud Foundry Trial” on the home screen. For more information on account creation, refer this [Blog][Blog]
 
@@ -67,10 +72,6 @@ please add a suffix or prefix (or change the entire name) to the host attribute 
 * REST-like API
 * Basic i18n support
 
-## Support
-
-For any question/clarification, to report an issue with SAP Cloud Platform trail account and services, please create github issues.
-
 ## Coding Samples
 
 Any software coding and/or code lines / strings ("Code") included in this documentation are only examples and are not intended to be used in a productive system environment. The Code is only intended to better explain and visualize the syntax and phrasing rules of certain coding. SAP does not warrant the correctness and completeness of the Code given herein, and SAP shall not be liable for errors or damages caused by the usage of the Code, unless damages were caused by SAP intentionally or by SAP's gross negligence.
@@ -95,3 +96,5 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [SAPCP]: https://account.hanatrial.ondemand.com
 [API]: https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/350356d1dc314d3199dca15bd2ab9b0e.html
 [Blog]: https://blogs.sap.com/2017/05/16/sap-cloud-platform-trial-now-includes-cloud-foundry/
+[CFSAP]: https://cloudplatform.sap.com/capabilities/runtimes-containers/cloud-foundry.html 
+[GS]: https://docs.cloudfoundry.org/cf-cli/getting-started.html
