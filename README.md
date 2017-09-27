@@ -1,43 +1,65 @@
-# Let's chat on SAP Cloud Platform
+# Let's Chat on SAP Cloud Platform
 
-A self-hosted chat app for small teams built by [Security Compass][seccom].
-
-Let's Chat is a simple chat application like slack that runs on SAP Cloud Platform - Cloud Foundry services. It uses Node.js buildpack and MongoDB services from SAP Cloud Platform.
+[Let's Chat][Let's Chat] is a simple chat application like slack that runs on SAP Cloud Platform - Cloud Foundry services. It uses Node.js buildpack and MongoDB services from SAP Cloud Platform.
 
 This repository demonstrates how to build and deploy Let's chat app to SAP Cloud Platform.
+
+## What is Cloud Foundry?
+
+Cloud Foundry is an open source cloud platform as a service (PaaS) on which developers can build, deploy, run and scale applications on public and private cloud models. 
 
 SAP is a Founding Platinum Level Member of the Cloud Foundry Foundation, an independent not for profit Linux Foundation Collaborative Project, whose purpose is to drive global awareness and adoption of the Cloud Foundry open source project and foster a vibrant community of contributors. More Details: [Cloud Foundry in SAP Cloud Platform][CFSAP] 
 
 ## Requirements and Installation
 
-Command line client for Cloud Foundry [cli][cli] . 
-[Getting started][GS] with cli.
+You need to download and install Command line client for Cloud Foundry [cli][cli]. 
+Please refer [Getting started][GS] with cli for more information.
 
-You can sign-up for the free SAP Cloud Platform trial here - [SAPCP][SAPCP] - Login and Click “Start Cloud Foundry Trial” on the home screen. For more information on account creation, refer this [Blog][Blog]
+You can sign-up for the [free SAP Cloud Platform trial][SAPCP] here - Login and Click “Start Cloud Foundry Trial” on the home screen. For more information on account creation, refer [tutorial on account creation][tutorial]
 
 ## Configuration
 
-Let's Chat can be configured by YAML (manifest.yml)
+Let's Chat can be configured by YAML (manifest.yml). Although you can deploy apps without a manifest, manifests provide consistency and reproducibility. This can be useful when when you want your apps to be portable between different clouds.
+
+Manifests are written in YAML. The manifest in this project illustrates some YAML conventions, as follows:
+
+The manifest begins with three dashes.
+
+The applications block begins with a heading followed by a colon.
+
+The application name is preceded by a single dash and one space.
+
+Subsequent lines in the block are indented two spaces to align with name.
 
 ## Deployment on Cloud Foundry
 
-Clone the Project and Navigate inside the folder which has manifest file.
+Download the Project zip file and extract it. Navigate inside the folder which has the manifest file.
 
-`git clone https://github.com/SAP/cloud-cf-lets-chat`
-
-Check the Regions and Hosts available for Cloud foundry environment here - [API][API]
-
-Example: 
+To Set the API endpoint of CLI to the cloud controller of SAP trial instance, Please use the following command.
 
 `cf api https://api.cf.eu10.hana.ondemand.com`
 
+Check the Regions and Hosts available for Cloud foundry environment here - [API][API]
+
+For more help in cf commands,
+
 `cf help `
+
+Log on to the trial instance with your SAP ID and password.
 
 `cf login` (Choose your org and space)
 
+Let’s create a service instance you may want to use within your application, e.g. to store data. 
+
+To list all services managed by service brokers execute the following command:
+
 `cf marketplace` (Choose from different plans of mongodb)
 
+Now, let’s create a service instance of mongodb using an available service plan.
+
 `cf create-service mongodb v3.0-dev mongodb`
+
+Since binding of mongodb service is already configured in manifest, you can deploy the application by executing the following command in the root folder of the project where manifest file is kept.
 
 `cf push `
 
@@ -72,14 +94,6 @@ please add a suffix or prefix (or change the entire name) to the host attribute 
 * REST-like API
 * Basic i18n support
 
-## Coding Samples
-
-Any software coding and/or code lines / strings ("Code") included in this documentation are only examples and are not intended to be used in a productive system environment. The Code is only intended to better explain and visualize the syntax and phrasing rules of certain coding. SAP does not warrant the correctness and completeness of the Code given herein, and SAP shall not be liable for errors or damages caused by the usage of the Code, unless damages were caused by SAP intentionally or by SAP's gross negligence.
-
-## Important Disclaimers on Security and Legal Aspects
-
-This document is for informational purposes only. Its content is subject to change without notice, and SAP does not warrant that it is error-free. SAP MAKES NO WARRANTIES, EXPRESS OR IMPLIED, OR OF MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE.
-
 ## License
 
 Copyright (c) 2017 SAP SE or an SAP affiliate company. All rights reserved.
@@ -92,9 +106,10 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [kerberos]: https://github.com/sdelements/lets-chat-kerberos
 [s3]: https://github.com/sdelements/lets-chat-s3
 [seccom]: http://securitycompass.com/
+[Let's Chat]: http://sdelements.github.io/lets-chat/
 [cli]: https://github.com/cloudfoundry/cli/releases
 [SAPCP]: https://account.hanatrial.ondemand.com
 [API]: https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/350356d1dc314d3199dca15bd2ab9b0e.html
-[Blog]: https://blogs.sap.com/2017/05/16/sap-cloud-platform-trial-now-includes-cloud-foundry/
+[tutorial]: https://www.sap.com/developer/tutorials/hcp-cf-getting-started.html
 [CFSAP]: https://cloudplatform.sap.com/capabilities/runtimes-containers/cloud-foundry.html 
 [GS]: https://docs.cloudfoundry.org/cf-cli/getting-started.html
