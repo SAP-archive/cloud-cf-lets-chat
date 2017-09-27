@@ -23,13 +23,10 @@ Let's Chat can be configured by YAML (manifest.yml). Although you can deploy app
 
 Manifests are written in YAML. The manifest in this project illustrates some YAML conventions, as follows:
 
-The manifest begins with three dashes.
-
-The applications block begins with a heading followed by a colon.
-
-The application name is preceded by a single dash and one space.
-
-Subsequent lines in the block are indented two spaces to align with name.
+- The manifest begins with three dashes.
+- The applications block begins with a heading followed by a colon.
+- The application name is preceded by a single dash and one space.
+- Subsequent lines in the block are indented two spaces to align with name.
 
 ## Deployment on Cloud Foundry
 
@@ -37,31 +34,31 @@ Download the Project zip file and extract it. Navigate inside the folder which h
 
 To Set the API endpoint of CLI to the cloud controller of SAP trial instance, Please use the following command.
 
-`cf api https://api.cf.eu10.hana.ondemand.com`
+    cf api https://api.cf.eu10.hana.ondemand.com
 
 Check the Regions and Hosts available for Cloud foundry environment here - [API][API]
 
 For more help in cf commands,
 
-`cf help `
+    cf help
 
-Log on to the trial instance with your SAP ID and password.
+Log on to the trial instance with your SAP ID and password.  (The login command may ask you for your organization and space.  You can find this information in the [SAP Cloud cockpit](https://account.hanatrial.ondemand.com/cockpit).)
 
-`cf login` (Choose your org and space)
+    cf login    
 
 Let’s create a service instance you may want to use within your application, e.g. to store data. 
 
 To list all services managed by service brokers execute the following command:
 
-`cf marketplace` (Choose from different plans of mongodb)
+    cf marketplace
 
 Now, let’s create a service instance of mongodb using an available service plan.
 
-`cf create-service mongodb v3.0-dev mongodb`
+    cf create-service mongodb v3.0-dev mongodb
 
 Since binding of mongodb service is already configured in manifest, you can deploy the application by executing the following command in the root folder of the project where manifest file is kept.
 
-`cf push `
+    cf push
 
 ## Known Issues 
 
