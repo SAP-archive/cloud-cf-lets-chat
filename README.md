@@ -1,3 +1,8 @@
+![](https://img.shields.io/badge/STATUS-NOT%20CURRENTLY%20MAINTAINED-red.svg?longCache=true&style=flat)
+
+# Notice
+This public repository is read-only and no longer maintained. For the latest sample code repositories, visit the [SAP Samples](https://github.com/SAP-samples) organization.
+
 # Let's Chat on SAP Cloud Platform
 
 [Let's Chat][Let's Chat] is a simple chat application like slack that runs on SAP Cloud Platform - Cloud Foundry services. It uses Node.js buildpack and MongoDB services from SAP Cloud Platform.
